@@ -1,0 +1,23 @@
+<form class="text-center"
+[formGroup]="fg"
+(ngSubmit)="guardar(fg.controls['titulo'].value, fg.controls['fecha'].value, fg.controls['detalles'].value)">
+	<div class="form-group">
+		<label for="titulo">Titulo</label>
+		<input type="text" class="form-control" id="titulo" placeholder="Ingresa el titulo" autocomplete="off" [formControl]="fg.controls['titulo']">
+		<ul>
+			<li *ngFor="let r of searchResults">{{r}}</li>
+		</ul>
+		<div *ngIf="fg.controls['titulo'].hasError('required')">Titulo vacio.</div>
+		<div *ngIf="fg.controls['titulo'].hasError('invalidTitulo')">Nombre invalido.</div>
+		<div *ngIf="fg.controls['titulo'].hasError('minLongTitulo')">Nombre debe tener al menos {{minLongitud}} caracteres.</div>
+	</div>
+	<div class="form-group">
+		<label for="fecha">Fecha</label>
+		<input type="date" class="form-control" id="fecha" [formControl]="fg.controls['fecha']">
+	</div>
+	<div class="form-group">
+		<label for="detalles">Detalles</label>
+		<textarea class="form-control" id="detalles" cols="30" rows="1" placeholder="Ingresa los detalles" [formControl]="fg.controls['detalles']"></textarea>
+	</div>
+	<button	type="submit" class="btn btn-primary" *ngIf="fg.valid">Guardar</button>
+</form>

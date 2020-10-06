@@ -1,0 +1,21 @@
+<div class="card card-outline-secondary col-6 mx-auto text-center">
+	<div class="card-header">
+		<h3	class="mb-0" *ngIf="!authService.isLoggedIn()">Inicio Sesión</h3>
+		<h3	class="mb-0" *ngIf="authService.isLoggedIn()">Cerrar Sesión</h3>
+	</div>
+	<div class="card-body">
+		<form *ngIf="!authService.getUser()">
+			<div class="form-group">
+				<label for="username">Usuario: </label>
+				<input type="text" class="form-control" name="username" #username>
+			</div>
+			<div class="form-group">
+				<label for="password">Contraseña: </label>
+				<input type="password" class="form-control" name="password" #password>
+			</div>
+			<div class="alert alert-danger" *ngIf="errorLog">Login Incorrecto</div>
+			<a class="btn btn-success" [routerLink]="['./../usuario']" (click)="login(username.value, password.value)"><span class="material-icons float-left mr-2">login</span>Ingresar</a>
+		</form>
+		<a class="btn btn-danger" id="logout" (click)="logout()" *ngIf="authService.isLoggedIn()">Salir</a>
+	</div>
+</div>

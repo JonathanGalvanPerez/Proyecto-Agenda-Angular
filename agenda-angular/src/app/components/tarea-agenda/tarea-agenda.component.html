@@ -1,0 +1,29 @@
+<div class="card" [@esPrioridad]="tarea.esPrioridad() ? 'estadoPrioridad' : 'estadoNoPrioridad'">
+	<div class="card-content">
+		<h5 class="card-header" [ngSwitch]="tarea.esPrioridad()">
+			<span>{{tarea.fecha}}</span>	
+			<div *ngSwitchCase="true" class="badge badge-primary float-right">Prioridad</div>
+			<div *ngSwitchDefault class="badge badge-secondary">{{indice}}</div>
+		</h5>
+		<div class="card-body">
+			<h3 class="card-title">
+				<span>{{tarea.titulo}}</span>
+				<div class="float-right">
+					<a href="#" (click)="voteUp()" appTrackearClick data-trackear-tags="tarea_vote_up lista_tareas_item">
+						<i class="material-icons md-18">thumb_up</i>
+					</a>
+					{{ tarea.votes }}
+					<a href="#" (click)="voteDown()" appTrackearClick data-trackear-tags="tarea_vote_down lista_tareas_item">
+						<i class="material-icons md-18">thumb_down</i>
+					</a>
+				</div>
+			</h3>
+			<p class="card-text">{{tarea.detalles}}</p>
+			<div class="d-flex justify-content-between">
+				<a *ngIf="!tarea.esPrioridad()" href="#" class="btn-card" (click)="seleccionar()" appTrackearClick data-trackear-tags="tarea_dar_prioridad lista_tareas_item">Dar prioridad</a>
+				<a *ngIf="tarea.esPrioridad()" class="btn-card crear-plan" [routerLink]="['/plan']">Crear Plan</a>
+				<a href="#" class="btn-card eliminar-plan" (click)="borrar()">Eliminar</a>
+			</div>
+		</div>
+	</div>
+</div>

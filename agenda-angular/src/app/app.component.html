@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <h1 class="titulo mx-auto">
+      {{ title }}
+    </h1>
+    <nav class="navbar navbar-light container-fluid">
+    	<ul class="navbar-nav flex-row mr-auto">
+    		<li class="nav-item">
+    			<a class="nav-link" [routerLink]="['/home']"><span class="material-icons float-left">wysiwyg</span>Tareas</a>
+    		</li>
+    		<li class="nav-item">
+    			<a class="nav-link" [routerLink]="['/plan']">Planificar<span class="material-icons float-left">event_note</span></a>
+    		</li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/usuario']"><span class="material-icons float-left">person</span>Usuario</a>
+        </li>
+    	</ul>
+    </nav>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,9 @@
+#map{
+	height: 300px;
+	width: 100%;
+	background-image: url('https://www.trucosgalaxy.net/wp-content/uploads/2017/08/cargando.gif');
+	background-position: center;
+}
+.mapboxgl-popup {
+max-width: 200px;
+}
