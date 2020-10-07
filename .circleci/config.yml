@@ -14,7 +14,7 @@ jobs:
       - 
         run: "npm install"
       - 
-        run: "./node_modules/protractor/bin/webdriver-manager update --standalone false --gecko false"
+        run: "./node_modules/protractor/bin/webdriver-manager update"
       - 
         save_cache: 
           key: "agenda-angular-{{ .Branch }}-{{ checksum \"package-lock.json\" }}"
