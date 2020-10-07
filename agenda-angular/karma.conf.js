@@ -24,12 +24,14 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: false,
+    autoWatch: false, // True en local para que espere cambios y recompile 
     browsers: ['Chrome', 'ChromeHeadless'],
+    // Quitar ChromeHeadless y customLaunchers para pruebas locales
     customLaunchers: {
       base: 'ChromeHeadless',
       flags: ['--no-sandbox', '--disable-gpu', '--disable-translate', '--disable-extensions', '--remote-debugging-port=9223']
     },
     singleRun: false,
+    //restartOnFileChange: true
   });
 };

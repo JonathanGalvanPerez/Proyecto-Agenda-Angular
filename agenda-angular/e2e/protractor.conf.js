@@ -7,6 +7,7 @@ const { SpecReporter, StacktraceOption } = require('jasmine-spec-reporter');
 /**
  * @type { import("protractor").Config }
  */
+
 exports.config = {
   allScriptsTimeout: 20000,
   specs: [
@@ -15,9 +16,12 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ['--headless', '--no-sandbox']
+      //binary: "C:/Program Files/Google/Chrome/Application/chrome.exe"
+      args: ['--headless', '--no-sandbox'] // Borrar para pruebas locales, si se desea ver el navegador
     },
   },
+  //directConnect: true,
+  //baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,

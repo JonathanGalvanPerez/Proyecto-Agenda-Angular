@@ -33,7 +33,8 @@ export interface AppConfig {
   apiEndpoint: string;
 }
 const APP_CONFIG_VALUE: AppConfig = {
-  apiEndpoint: 'https://agenda-angular-api.herokuapp.com/'
+  apiEndpoint: 'https://agenda-angular-api.herokuapp.com'
+  //apiEndpoint: 'http://localhost:4200'
 };
 export const APP_CONFIG = new InjectionToken<AppConfig>('app.config');
 // fin app config

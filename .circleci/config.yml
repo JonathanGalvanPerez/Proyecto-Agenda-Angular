@@ -14,6 +14,8 @@ jobs:
       - 
         run: "npm install"
       - 
+        run: "npm run webdriver-manager update --standalone false --gecko false"
+      - 
         save_cache: 
           key: "agenda-angular-{{ .Branch }}-{{ checksum \"package-lock.json\" }}"
           paths: 
